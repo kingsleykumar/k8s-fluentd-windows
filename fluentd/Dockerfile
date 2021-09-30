@@ -1,4 +1,4 @@
-FROM mcr.microsoft.com/windows/servercore:ltsc2019 as base
+FROM mcr.microsoft.com/windows/servercore:ltsc2022 as base
 
 #Set powershell as default shell
 SHELL ["powershell", "-NoLogo", "-Command", "$ErrorActionPreference = 'Stop'; $ProgressPreference = 'SilentlyContinue';"]
@@ -32,11 +32,13 @@ gem install fluent-plugin-concat; \
 gem install fluent-plugin-rewrite-tag-filter; \
 gem install fluent-plugin-multi-format-parser; \
 gem install fluent-plugin-cloudwatch-logs; \
+gem install fluent-plugin-firehose; \
+gem install fluent-plugin-kubernetes_metadata_filter; \
 gem sources --clear-all; \
 Remove-Item -Force C:\ruby26\lib\ruby\gems\2.6.0\cache\*.gem; \
 Remove-Item -Recurse -Force C:\ProgramData\chocolatey
 
-FROM mcr.microsoft.com/windows/servercore:ltsc2019
+FROM mcr.microsoft.com/windows/servercore:ltsc2022
 
 COPY --from=base /ruby26 /ruby26
 

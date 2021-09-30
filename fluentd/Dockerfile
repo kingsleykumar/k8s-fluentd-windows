@@ -1,4 +1,4 @@
-FROM mcr.microsoft.com/windows/servercore:ltsc2022 as base
+FROM mcr.microsoft.com/windows/servercore:10.0.17763.2183 as base
 
 #Set powershell as default shell
 SHELL ["powershell", "-NoLogo", "-Command", "$ErrorActionPreference = 'Stop'; $ProgressPreference = 'SilentlyContinue';"]
@@ -38,7 +38,7 @@ gem sources --clear-all; \
 Remove-Item -Force C:\ruby26\lib\ruby\gems\2.6.0\cache\*.gem; \
 Remove-Item -Recurse -Force C:\ProgramData\chocolatey
 
-FROM mcr.microsoft.com/windows/servercore:ltsc2022
+FROM mcr.microsoft.com/windows/servercore:10.0.17763.2183
 
 COPY --from=base /ruby26 /ruby26
 

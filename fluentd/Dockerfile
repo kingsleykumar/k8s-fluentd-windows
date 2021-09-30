@@ -30,10 +30,8 @@ gem install windows-pr -v 1.2.6; \
 gem install aws-sdk-cloudwatchlogs; \
 gem install fluent-plugin-concat; \
 gem install fluent-plugin-rewrite-tag-filter; \
-gem install fluent-plugin-kubernetes_metadata_filter; \
 gem install fluent-plugin-multi-format-parser; \
 gem install fluent-plugin-cloudwatch-logs; \
-gem install fluent-plugin-firehose; \
 gem sources --clear-all; \
 Remove-Item -Force C:\ruby26\lib\ruby\gems\2.6.0\cache\*.gem; \
 Remove-Item -Recurse -Force C:\ProgramData\chocolatey

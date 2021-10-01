@@ -31,4 +31,4 @@ RUN powershell -Command "Remove-Item -Force C:\ruby26\lib\ruby\gems\2.6.0\cache\
 
 EXPOSE 24224 5140
 
-ENTRYPOINT ["cmd", "/k", "fluentd"]
+ENTRYPOINT ["cmd", "/k", "fluentd","-c", "C:\\etc\\fluent\\fluent.conf"]
